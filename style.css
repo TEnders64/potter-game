@@ -1,0 +1,119 @@
+@font-face {
+    font-family: potter;
+    src: url(HARRYP__.TTF);
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: potter;
+}
+body {
+    background-color: black;
+    color: rgb(212, 70, 45);
+    font-weight: bold;
+}
+div#surface {
+    background-image: url('images/hogwarts.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+    height: 600px;
+    padding-top: 20px;
+}
+.alert {
+    margin-bottom: 250px;
+}
+.bulletin {
+    color: greenyellow;
+    font-weight: lighter;
+    font-size: 20px;
+}
+#wizard-name {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+button {
+    background-color: tan;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+ul {
+    margin: 20px 0px;
+    text-align: left;
+    padding-left: 30px;
+    font-size: 20px;
+    font-weight: lighter;
+}
+.orange {
+    color: orange;
+}
+.hints {
+    height: 50px;
+}
+#hedwig, #bread {
+    width: 100px;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+}
+#books {
+    width: 150px;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+}
+#potions {
+    width: 250px;
+    position: absolute;
+    top: 25%;
+    left: 10%;
+}
+#memory {
+    height: 200px;
+    position: absolute;
+    top: 25%;
+    left: 27%;
+}
+#broomstick {
+    height: 200px;
+    position: absolute;
+    top: 20%;
+    left: 27%;
+}
+.meter {
+    width: 300px;
+    height: 10px;
+    border: 1px solid white;
+    margin: 0px auto;  
+    position: relative;  
+}
+.fill {
+    position: relative;
+    width: 0px;
+    top: -11px;
+    left: 0;
+    background-color: yellow;
+}
+#meteolojinx, #ebublio {
+    width: 300px;
+    margin: 0px auto;
+}
+.short {
+    margin-bottom: 60px;
+}
+table {
+    margin: 0px auto;
+}
+td {
+    font-size: 24px;
+}
+.choices {
+    display: inline-block;
+    vertical-align: top;
+    border: 2px solid orange;
+}

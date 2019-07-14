@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10th Anniversary Harry Potter Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="surface">
+        <div class="alert">
+            <h1>ALERT! ALERT!</h1>
+            <p>The Ministry of Magic has issued a most frightening bulletin...</p>
+        </div>
+        <p class="bulletin">According to sources deep within the Ministry of Magic's Department of Crimes Moste Potente, 4 artifacts were stolen from a beloved witch, Miss MmmmButterBears.  Unless these artifacts are restored within 24 hours, the love between Miss MmmButterBears and ChickenScratch may be lost forever!  We need our most cunning and brave witch to answer our call.</p>
+        <p class="bulletin">Are you up to the task?</p>
+        <input id="wizard-name" type="text" placeholder="Enter Your Name">
+        <button id="wizard-name-button">BEGIN</button>
+    </div>
+    <div id="startup" hidden>
+        <div class="alert">
+            <h2>Let's Get Started: Gameplay</h2>
+        </div>
+        <p class="bulletin">For each challenge, there will be a riddle pointing to a significant piece of Miss MmmButterBears and ChickenScratch's history, hobbies, or favorite things to do.</p>
+        <ul>
+            <li>Solve the riddle to get to the next checkpoint.</li>
+            <li>Click SOLVED and cast your spell.</li>
+            <li>Retrieve the missing artifact.</li>
+        </ul>
+        <button id="gameplay">START</button>
+    </div>
+    <div id="aunties" hidden>
+        <h1 class="alert">PESKY VARMINTS!!!</h1>
+        <p class="bulletin">Always posing for the camera and getting into things they is.  We need to find their hideout, or at least go where Miss MmmButterBears has bought their pictures most recently.</p>
+        <p class="bulletin">Find their location to get your first artifact</p>
+        <p class="bulletin">Hints unlock every 20 seconds.</p>
+        <div class="hints"></div>
+        <button id="aunties-solved">SOLVED</button>
+    </div>
+    <div id="aunties-spell" hidden>
+        <h1 class="alert">WELL DONE! But you must cast the RIDDIKULUS spell quick!</h1>
+        <!-- <img src="images/riddikulus.jpg" id="riddikulus" alt="Riddikulus"> -->
+        <div class="meter"></div>
+        <div class="meter fill"></div>
+        <img ontouchstart="startMeter(event)" ontouchmove="fillMeter(event)" ontouchend="endMeter(event, barrister, 1)" src="images/meteolojinx.png" id="meteolojinx" class="spell" alt="Riddikulus">
+    </div>
+    <div id="barrister" hidden>
+        <h1 class="alert short">Hopefully you didn't need a potion for that last one!</h1>
+        <p class="bulletin">Speaking of potion...</p>
+        <p class="bulletin">MASSIVE SALE of "POTIONS" @ Slug & Jiggers</p>
+        <p class="bulletin">Find 10 clues below</p>
+        <table>
+            <tr>
+                <td>N</td>
+                <td>O</td>
+                <td>S</td>
+                <td>E</td>
+                <td>P</td>
+                <td>R</td>
+                <td>C</td>
+                <td>T</td>
+                <td>B</td>
+                <td>D</td>
+                <td>L</td>
+                <td>W</td>
+                <td>G</td>
+                <td>O</td>
+            </tr>
+            <tr>
+                <td>X</td>
+                <td>P</td>
+                <td>Y</td>
+                <td>N</td>
+                <td>K</td>
+                <td>Q</td>
+                <td>U</td>
+                <td>S</td>
+                <td>O</td>
+                <td>A</td>
+                <td>K</td>
+                <td>Z</td>
+                <td>J</td>
+                <td>B</td>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>E</td>
+                <td>A</td>
+                <td>T</td>
+                <td>H</td>
+                <td>E</td>
+                <td>R</td>
+                <td>F</td>
+                <td>D</td>
+                <td>B</td>
+                <td>Z</td>
+                <td>P</td>
+                <td>K</td>
+                <td>N</td>
+            </tr>
+            <tr>
+                <td>Y</td>
+                <td>P</td>
+                <td>G</td>
+                <td>A</td>
+                <td>J</td>
+                <td>N</td>
+                <td>D</td>
+                <td>E</td>
+                <td>Y</td>
+                <td>O</td>
+                <td>A</td>
+                <td>U</td>
+                <td>T</td>
+                <td>Q</td>
+            </tr>
+            <tr>
+                <td>R</td>
+                <td>P</td>
+                <td>E</td>
+                <td>V</td>
+                <td>J</td>
+                <td>G</td>
+                <td>M</td>
+                <td>D</td>
+                <td>A</td>
+                <td>Y</td>
+                <td>X</td>
+                <td>C</td>
+                <td>Z</td>
+                <td>O</td>
+            </tr>
+            <tr>
+                <td>H</td>
+                <td>E</td>
+                <td>B</td>
+                <td>P</td>
+                <td>K</td>
+                <td>L</td>
+                <td>A</td>
+                <td>W</td>
+                <td>Y</td>
+                <td>E</td>
+                <td>R</td>
+                <td>V</td>
+                <td>C</td>
+                <td>H</td>
+            </tr>
+            <tr>
+                <td>T</td>
+                <td>R</td>
+                <td>O</td>
+                <td>W</td>
+                <td>Q</td>
+                <td>A</td>
+                <td>G</td>
+                <td>W</td>
+                <td>X</td>
+                <td>Z</td>
+                <td>P</td>
+                <td>Q</td>
+                <td>U</td>
+                <td>O</td>
+            </tr>
+            <tr>
+                <td>I</td>
+                <td>Y</td>
+                <td>F</td>
+                <td>I</td>
+                <td>N</td>
+                <td>I</td>
+                <td>S</td>
+                <td>H</td>
+                <td>H</td>
+                <td>G</td>
+                <td>F</td>
+                <td>L</td>
+                <td>S</td>
+                <td>M</td>
+            </tr>
+            <tr>
+                <td>A</td>
+                <td>E</td>
+                <td>P</td>
+                <td>Y</td>
+                <td>D</td>
+                <td>B</td>
+                <td>U</td>
+                <td>T</td>
+                <td>T</td>
+                <td>E</td>
+                <td>R</td>
+                <td>Y</td>
+                <td>J</td>
+                <td>A</td>
+            </tr>
+        </table>
+        <button id="barrister-solved">SOLVED</button>
+    </div>
+    <div id="barrister-spell" hidden>
+        <h1 class="alert">WELL DONE! But you must cast the EBUBLIO spell quick!</h1>
+        <img src="images/potions.jpg" id="potions" alt="potions">
+        <div class="meter"></div>
+        <div class="meter fill"></div>
+        <img ontouchstart="startMeter(event)" ontouchmove="fillMeter(event)" ontouchend="endMeter(event, sushi, 2)" src="images/meteolojinx.png" id="meteolojinx" class="spell" alt="Riddikulus">  
+    </div>
+    <div id="sushi" hidden>
+        <p class="bulletin">ChickenScratch introduced Miss MmmButterBears to this wonderful world of A-Y-C-E.</p>
+        <p class="bulletin">Too bad there isn't one in Spokane. We'll have to settle for a website restaurant.</p>
+        <button id="sushi-solved">SOLVED</button>
+    </div>
+    <div id="sushi-spell" hidden>
+        <h1 class="alert">WELL DONE! But you must cast the Memory Charm to hang onto this memory!</h1>
+        <img src="images/obliviate.jpg" id="memory" alt="obliviate">
+        <div class="meter"></div>
+        <div class="meter fill"></div>
+        <img ontouchstart="startMeter(event)" ontouchmove="fillMeter(event)" ontouchend="endMeter(event, boots, 3)" src="images/meteolojinx.png" id="meteolojinx" class="spell" alt="Riddikulus"> 
+    </div>
+    <div id="boots" hidden>
+        <h1 class="alert">Hop a Broomstick!</h1>
+        <img src="images/broomstick.jpg" id="broomstick" alt="">
+        <p class="bulletin">Got a cloudy head from too many potions?</p>
+        <p class="bulletin">Thankfully, only potions have made Miss MmmButterBears and ChickenScratch cloudy these days.</p>
+        <p class="bulletin">Find the "Inn" that caters to their choice they made 5+ years ago</p>
+        <div class="hints"></div>
+        <button id="boots-solved">SOLVED</button>
+    </div>
+    <div id="boots-spell" hidden>
+        <h1 class="alert">WELL DONE! But you must cast the Gluteojinx Recanto spell to fend off gluten!</h1>
+        <div class="meter"></div>
+        <div class="meter fill"></div>
+        <img ontouchstart="startMeter(event)" ontouchmove="fillMeter(event)" ontouchend="endMeter(event, apple, 4)" src="images/meteolojinx.png" id="meteolojinx" class="spell" alt="Riddikulus"> 
+    </div>
+    <div id="apple">
+        <h1 class="alert">Congratulations, you finished the challenge! Now time to claim your prize!</h1>
+        <p class="bulletin">Choose From The Following Combinations:</p>
+        <div class="choices">
+            <ul>
+                <li>POWER</li>
+                <li>Wit-Sharpening</li>
+                <li>Barfullo</li>
+            </ul>
+        </div>
+        <div class="choices">
+            <ul>
+                <li>STAMINA</li>
+                <li>Dawdle Draft Potion</li>
+                <li>Exstimulo</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
