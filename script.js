@@ -40,11 +40,12 @@ $(document).ready(function(){
 
     $("#surface").on('click', 'td', function(){
         var current = $(this).css('background-color');
-        if (current != 'green'){
+        console.log(current);
+        if (current != 'rgb(255, 255, 255)'){
+            $(this).css('background-color', 'rgb(255, 255, 255)')
 
-            $(this).css('background-color', 'green')
         } else {
-            $(this).css('background-color', 'white')
+            $(this).css('background-color', 'green')
         }
     })
 })
