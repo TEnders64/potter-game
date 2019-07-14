@@ -37,6 +37,16 @@ $(document).ready(function(){
     $("#surface").on('click', '#boots-solved', function(){
         $('#surface').html($("#boots-spell").html());
     })
+
+    $("#surface").on('click', 'td', function(){
+        var current = $(this).css('background-color');
+        if (current != 'green'){
+
+            $(this).css('background-color', 'green')
+        } else {
+            $(this).css('background-color', 'white')
+        }
+    })
 })
 
 var beginning, end;

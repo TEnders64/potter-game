@@ -111,6 +111,7 @@ table {
 }
 td {
     font-size: 24px;
+    background-color: white;
 }
 .choices {
     display: inline-block;
