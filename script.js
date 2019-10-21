@@ -50,33 +50,53 @@ $(document).ready(function(){
     })
 })
 
-var beginning, end;
+let meterSize, lastUpdateTime;
+const MAXED_METER = 300;
+const METER_FILL_SPEED = 0.03; // Pixels per millisecond
 
-function startMeter(event){
-    beginning = event.timeStamp;
+
+function startMeter(event) {
+    lastUpdateTime = event.timeStamp;
 }
 
 function fillMeter(event){
-    end = event.timeStamp;
-    $(".fill").css("width", function(){ 
-        if (parseInt($(this).css("width")) < 250) {
-            return ((end-beginning) / 7) + "px" }
-        }
-        )
+    if (!meterSize) {
+        meterSize = 1;
     }
     
-    function endMeter(event, next, artifacts){
-        $("#surface").fadeOut("slow", function(){
-            $(".fill").css("width", 0);
-            $("#surface").html($(next).html());
-            console.log($(next).attr('id'));
-            if ($(next).attr('id') == "sushi"){
-                $("#surface").prepend("<h1 class='alert'>"+wizardName+" Artifacts Found: "+artifacts+"</h1>");
-                console.log(next);
-            }
-            else {
-                $("#surface").prepend("<h1>"+wizardName+" Artifacts Found: "+artifacts+"</h1>");
-            }
+
+    const timeNow = event.timeStamp;
+    const deltaTime = timeNow - lastUpdateTime;
+    lastUpdateTime = timeNow;
+
+    $(".fill").css("width", function(){ 
+        if (meterSize < MAXED_METER) {
+            meterSize += METER_FILL_SPEED * deltaTime;
+            return `${Math.floor(meterSize)}px`;
+        }
+    });
+}
+    
+function endMeter(event, next, artifacts){
+    // Don't move to next spell till meter is filled
+    if (meterSize < MAXED_METER) {
+        return;
+    }
+    $("#surface").fadeOut("slow", function(){
+        // Reset meter
+        $(".fill").css("width", 0);
+        meterSize = 0;
+
+        // Move to next puzzle
+        $("#surface").html($(next).html());
+        console.log($(next).attr('id'));
+        if ($(next).attr('id') == "sushi"){
+            $("#surface").prepend("<h1 class='alert'>"+wizardName+" Artifacts Found: "+artifacts+"</h1>");
+            console.log(next);
+        }
+        else {
+            $("#surface").prepend("<h1>"+wizardName+" Artifacts Found: "+artifacts+"</h1>");
+        }
         $("#surface").fadeIn("fast");
     });
 }
